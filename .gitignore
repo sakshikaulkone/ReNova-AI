@@ -1,0 +1,40 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Environment variables
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+sandbox/build_logs/
+
+# Generated outputs
+sandbox/modernized_output/
+sandbox/temp/
+sandbox/extracted_repos/
+
+# AWS / credentials
+.aws/
+*.pem
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+# Streamlit
+.streamlit/secrets.toml
