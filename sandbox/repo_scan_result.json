@@ -1,0 +1,36 @@
+{
+  "repo_path": "examples\\kst_lce_legacy_sample",
+  "total_files": 3,
+  "legacy_file_count": 2,
+  "language_counts": {
+    "Config": 1,
+    "C#": 1,
+    "VB6": 1
+  },
+  "files": [
+    {
+      "path": "app.config",
+      "name": "app.config",
+      "extension": ".config",
+      "language": "Config",
+      "is_legacy_candidate": true,
+      "size_bytes": 199
+    },
+    {
+      "path": "FaultDataAccess.cs",
+      "name": "FaultDataAccess.cs",
+      "extension": ".cs",
+      "language": "C#",
+      "is_legacy_candidate": false,
+      "size_bytes": 775
+    },
+    {
+      "path": "FaultTrend.bas",
+      "name": "FaultTrend.bas",
+      "extension": ".bas",
+      "language": "VB6",
+      "is_legacy_candidate": true,
+      "size_bytes": 581
+    }
+  ]
+}
