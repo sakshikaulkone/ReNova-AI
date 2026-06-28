@@ -1,11 +1,69 @@
 {
   "repo_path": "examples\\kst_lce_legacy_sample",
-  "total_files": 3,
-  "legacy_file_count": 2,
+  "total_files": 6,
+  "legacy_file_count": 3,
   "language_counts": {
-    "Config": 1,
+    "Config": 2,
     "C#": 1,
-    "VB6": 1
+    "SQL": 1,
+    "VB6": 1,
+    "C# Project": 1
+  },
+  "modernization_category_counts": {
+    "VB6 Legacy": 1,
+    "Old .NET Framework / C#": 2,
+    "Modern .NET": 0,
+    "Database / SQL": 1,
+    "Configuration": 2,
+    "Documentation": 0,
+    "Unknown / Other": 0
+  },
+  "files_by_modernization_category": {
+    "VB6 Legacy": [
+      "FaultTrend.bas"
+    ],
+    "Old .NET Framework / C#": [
+      "FaultDataAccess.cs",
+      "LegacyKstLce.csproj"
+    ],
+    "Modern .NET": [],
+    "Database / SQL": [
+      "FaultEvents.sql"
+    ],
+    "Configuration": [
+      "app.config",
+      "packages.config"
+    ],
+    "Documentation": [],
+    "Unknown / Other": []
+  },
+  "modernization_summary": {
+    "total_files_scanned": 6,
+    "total_files_requiring_modernization": 5,
+    "highest_risk_category": "VB6 Legacy",
+    "recommended_next_step": "Start with VB6 Legacy and Old .NET Framework / C# files. Build a business logic extraction agent next."
+  },
+  "dotnet_analysis": {
+    "projects": [
+      {
+        "path": "LegacyKstLce.csproj",
+        "project_style": "old-style",
+        "target_framework": ".NET Framework 4.7.2",
+        "modernization_needed": true,
+        "recommended_target": ".NET 8",
+        "risk": "High",
+        "signals": [
+          "Old non-SDK-style project file",
+          "Uses TargetFrameworkVersion v4.7.2"
+        ]
+      }
+    ],
+    "packages_config_files": [
+      "packages.config"
+    ],
+    "config_files": [
+      "app.config"
+    ]
   },
   "files": [
     {
@@ -13,7 +71,9 @@
       "name": "app.config",
       "extension": ".config",
       "language": "Config",
-      "is_legacy_candidate": true,
+      "modernization_category": "Configuration",
+      "modernization_needed": true,
+      "recommended_action": "Migrate to appsettings.json / environment variables where applicable.",
       "size_bytes": 199
     },
     {
@@ -21,16 +81,56 @@
       "name": "FaultDataAccess.cs",
       "extension": ".cs",
       "language": "C#",
-      "is_legacy_candidate": false,
-      "size_bytes": 775
+      "modernization_category": "Old .NET Framework / C#",
+      "modernization_needed": true,
+      "recommended_action": "Review for .NET 8 migration; replace old data access/configuration patterns where needed.",
+      "size_bytes": 775,
+      "signals": [
+        "Uses System.Data.SqlClient",
+        "Uses SqlConnection",
+        "Uses SqlCommand",
+        "Uses SqlDataAdapter"
+      ]
+    },
+    {
+      "path": "FaultEvents.sql",
+      "name": "FaultEvents.sql",
+      "extension": ".sql",
+      "language": "SQL",
+      "modernization_category": "Database / SQL",
+      "modernization_needed": false,
+      "recommended_action": "Review for compatibility with target .NET 8 data access layer.",
+      "size_bytes": 108
     },
     {
       "path": "FaultTrend.bas",
       "name": "FaultTrend.bas",
       "extension": ".bas",
       "language": "VB6",
-      "is_legacy_candidate": true,
+      "modernization_category": "VB6 Legacy",
+      "modernization_needed": true,
+      "recommended_action": "Rewrite in C# / .NET 8; extract business logic first.",
       "size_bytes": 581
+    },
+    {
+      "path": "LegacyKstLce.csproj",
+      "name": "LegacyKstLce.csproj",
+      "extension": ".csproj",
+      "language": "C# Project",
+      "modernization_category": "Old .NET Framework / C#",
+      "modernization_needed": true,
+      "recommended_action": "Review for .NET 8 migration.",
+      "size_bytes": 608
+    },
+    {
+      "path": "packages.config",
+      "name": "packages.config",
+      "extension": ".config",
+      "language": "Config",
+      "modernization_category": "Configuration",
+      "modernization_needed": true,
+      "recommended_action": "Migrate to appsettings.json / environment variables where applicable.",
+      "size_bytes": 214
     }
   ]
 }
