@@ -1,0 +1,24 @@
+app:
+  name: ReNova AI
+  environment: local
+
+paths:
+  sample_repo_path: examples/kst_lce_legacy_sample
+  scanner_output_path: sandbox/repo_scan_result.json
+  repo_intake_report_path: sandbox/reports/repo_intake_report.md
+
+prompts:
+  repo_intake_system: agent/prompts/repo_intake_system.md
+  repo_intake_task: agent/prompts/repo_intake_task.md
+  repo_intake_output_format: agent/prompts/repo_intake_output_format.md
+
+model:
+  provider: bedrock
+  model_id_env: AWS_BEDROCK_MODEL_ID
+  region_env: AWS_DEFAULT_REGION
+  fallback_model_id: anthropic.claude-3-haiku-20240307-v1:0
+  fallback_region: us-east-1
+  temperature: 0.2
+  top_p: 0.9
+  max_tokens: 4096
+  streaming: false
