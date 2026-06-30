@@ -6,11 +6,16 @@ paths:
   sample_repo_path: examples/kst_lce_legacy_sample
   scanner_output_path: sandbox/repo_scan_result.json
   repo_intake_report_path: sandbox/reports/repo_intake_report.md
+  modernization_request_path: agent/requirements/kst_lce_modernization_request.md
+  modernization_request_report_path: sandbox/reports/modernization_request_report.md
 
 prompts:
   repo_intake_system: agent/prompts/repo_intake_system.md
   repo_intake_task: agent/prompts/repo_intake_task.md
   repo_intake_output_format: agent/prompts/repo_intake_output_format.md
+  modernization_request_system: agent/prompts/modernization_request_system.md
+  modernization_request_task: agent/prompts/modernization_request_task.md
+  modernization_request_output_format: agent/prompts/modernization_request_output_format.md
 
 model:
   provider: bedrock
