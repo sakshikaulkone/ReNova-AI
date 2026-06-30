@@ -8,6 +8,16 @@ paths:
   repo_intake_report_path: sandbox/reports/repo_intake_report.md
   modernization_request_path: agent/requirements/kst_lce_modernization_request.md
   modernization_request_report_path: sandbox/reports/modernization_request_report.md
+  legacy_understanding_report_path: sandbox/reports/legacy_understanding_report.md
+  legacy_files_to_understand:
+    - examples/kst_lce_legacy_sample/ControllerDongle.bas
+    - examples/kst_lce_legacy_sample/FaultTrend.bas
+    - examples/kst_lce_legacy_sample/ControllerConnection.cs
+    - examples/kst_lce_legacy_sample/FaultControllerReader.cs
+    - examples/kst_lce_legacy_sample/FaultDataAccess.cs
+    - examples/kst_lce_legacy_sample/app.config
+    - examples/kst_lce_legacy_sample/FaultCodeSeverity.sql
+    - examples/kst_lce_legacy_sample/LegacyKstLce.csproj
 
 prompts:
   repo_intake_system: agent/prompts/repo_intake_system.md
@@ -16,6 +26,9 @@ prompts:
   modernization_request_system: agent/prompts/modernization_request_system.md
   modernization_request_task: agent/prompts/modernization_request_task.md
   modernization_request_output_format: agent/prompts/modernization_request_output_format.md
+  legacy_understanding_system: agent/prompts/legacy_understanding_system.md
+  legacy_understanding_task: agent/prompts/legacy_understanding_task.md
+  legacy_understanding_output_format: agent/prompts/legacy_understanding_output_format.md
 
 model:
   provider: bedrock
