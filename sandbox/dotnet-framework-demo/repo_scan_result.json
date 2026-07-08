@@ -1,0 +1,77 @@
+{
+  "repo_path": "examples\\elevator-fault-dotnet-framework-demo\\legacy",
+  "total_files": 8,
+  "legacy_file_count": 1,
+  "language_counts": {
+    "Text": 1,
+    "C#": 4,
+    "C# Project": 2,
+    "VB6": 1
+  },
+  "files": [
+    {
+      "path": "csharp\\controller_fault_codes.txt",
+      "name": "controller_fault_codes.txt",
+      "extension": ".txt",
+      "language": "Text",
+      "is_legacy_candidate": false,
+      "size_bytes": 662
+    },
+    {
+      "path": "csharp\\FaultCodeService.cs",
+      "name": "FaultCodeService.cs",
+      "extension": ".cs",
+      "language": "C#",
+      "is_legacy_candidate": false,
+      "size_bytes": 4048
+    },
+    {
+      "path": "csharp\\LegacyControllerClient.cs",
+      "name": "LegacyControllerClient.cs",
+      "extension": ".cs",
+      "language": "C#",
+      "is_legacy_candidate": false,
+      "size_bytes": 1435
+    },
+    {
+      "path": "csharp\\LegacyElevatorFaultReader-SDK.csproj",
+      "name": "LegacyElevatorFaultReader-SDK.csproj",
+      "extension": ".csproj",
+      "language": "C# Project",
+      "is_legacy_candidate": false,
+      "size_bytes": 563
+    },
+    {
+      "path": "csharp\\LegacyElevatorFaultReader.csproj",
+      "name": "LegacyElevatorFaultReader.csproj",
+      "extension": ".csproj",
+      "language": "C# Project",
+      "is_legacy_candidate": false,
+      "size_bytes": 2313
+    },
+    {
+      "path": "csharp\\Program.cs",
+      "name": "Program.cs",
+      "extension": ".cs",
+      "language": "C#",
+      "is_legacy_candidate": false,
+      "size_bytes": 2036
+    },
+    {
+      "path": "vb6\\FaultReader.bas",
+      "name": "FaultReader.bas",
+      "extension": ".bas",
+      "language": "VB6",
+      "is_legacy_candidate": true,
+      "size_bytes": 4564
+    },
+    {
+      "path": "csharp\\Properties\\AssemblyInfo.cs",
+      "name": "AssemblyInfo.cs",
+      "extension": ".cs",
+      "language": "C#",
+      "is_legacy_candidate": false,
+      "size_bytes": 1172
+    }
+  ]
+}
