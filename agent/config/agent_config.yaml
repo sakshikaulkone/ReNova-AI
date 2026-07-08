@@ -3,21 +3,28 @@ app:
   environment: local
 
 paths:
-  sample_repo_path: examples/kst_lce_legacy_sample
-  scanner_output_path: sandbox/repo_scan_result.json
-  repo_intake_report_path: sandbox/reports/repo_intake_report.md
-  modernization_request_path: agent/requirements/kst_lce_modernization_request.md
-  modernization_request_report_path: sandbox/reports/modernization_request_report.md
-  legacy_understanding_report_path: sandbox/reports/legacy_understanding_report.md
+  sample_repo_path: examples/elevator-fault-dotnet-framework-demo/legacy
+  scanner_output_path: sandbox/dotnet-framework-demo/repo_scan_result.json
+  repo_intake_report_path: sandbox/dotnet-framework-demo/reports/repo_intake_report.md
+  modernization_request_path: agent/requirements/dotnet-framework-demo/modernization_request.md
+  modernization_request_report_path: sandbox/dotnet-framework-demo/reports/modernization_request_report.md
+  legacy_understanding_report_path: sandbox/dotnet-framework-demo/reports/legacy_understanding_report.md
   legacy_files_to_understand:
-    - examples/kst_lce_legacy_sample/ControllerDongle.bas
-    - examples/kst_lce_legacy_sample/FaultTrend.bas
-    - examples/kst_lce_legacy_sample/ControllerConnection.cs
-    - examples/kst_lce_legacy_sample/FaultControllerReader.cs
-    - examples/kst_lce_legacy_sample/FaultDataAccess.cs
-    - examples/kst_lce_legacy_sample/app.config
-    - examples/kst_lce_legacy_sample/FaultCodeSeverity.sql
-    - examples/kst_lce_legacy_sample/LegacyKstLce.csproj
+    - examples/elevator-fault-dotnet-framework-demo/legacy/vb6/FaultReader.bas
+    - examples/elevator-fault-dotnet-framework-demo/legacy/csharp/LegacyControllerClient.cs
+    - examples/elevator-fault-dotnet-framework-demo/legacy/csharp/FaultCodeService.cs
+    - examples/elevator-fault-dotnet-framework-demo/legacy/csharp/Program.cs
+    - examples/elevator-fault-dotnet-framework-demo/legacy/csharp/LegacyElevatorFaultReader.csproj
+    - examples/elevator-fault-dotnet-framework-demo/legacy/csharp/controller_fault_codes.txt
+  sme_answers_path: agent/requirements/dotnet-framework-demo/sme_answers.md
+  code_conversion_report_path: sandbox/dotnet-framework-demo/reports/code_conversion_report_opus.md
+  generated_code_output_dir: sandbox/dotnet-framework-demo/generated_code_claude-opus-4-5
+  code_conversion_files:
+    # Converting ALL files at once with Opus 4.5 (higher token limit)
+    - examples/elevator-fault-dotnet-framework-demo/legacy/vb6/FaultReader.bas
+    - examples/elevator-fault-dotnet-framework-demo/legacy/csharp/LegacyControllerClient.cs
+    - examples/elevator-fault-dotnet-framework-demo/legacy/csharp/FaultCodeService.cs
+    - examples/elevator-fault-dotnet-framework-demo/legacy/csharp/Program.cs
 
 prompts:
   repo_intake_system: agent/prompts/repo_intake_system.md
@@ -29,14 +36,37 @@ prompts:
   legacy_understanding_system: agent/prompts/legacy_understanding_system.md
   legacy_understanding_task: agent/prompts/legacy_understanding_task.md
   legacy_understanding_output_format: agent/prompts/legacy_understanding_output_format.md
+  code_conversion_system: agent/prompts/code_conversion_system.md
+  code_conversion_task: agent/prompts/code_conversion_task.md
+  code_conversion_output_format: agent/prompts/code_conversion_output_format.md
 
 model:
-  provider: bedrock
-  model_id_env: AWS_BEDROCK_MODEL_ID
-  region_env: AWS_DEFAULT_REGION
-  fallback_model_id: anthropic.claude-3-haiku-20240307-v1:0
-  fallback_region: us-east-1
-  temperature: 0.2
-  top_p: 0.9
-  max_tokens: 4096
-  streaming: false
+  provider: openai
+
+  openai:
+    api_key_env: OPENAI_API_KEY
+    model_id_env: OPENAI_MODEL_ID
+    base_url_env: OPENAI_BASE_URL
+    fallback_model_id: bedrock/eu.anthropic.claude-opus-4-5-20251101-v1:0
+    temperature: 0.2
+    max_tokens: 16384
+
+  # Bedrock config (for direct AWS access):
+  # bedrock:
+  #   model_id_env: AWS_BEDROCK_MODEL_ID
+  #   region_env: AWS_DEFAULT_REGION
+  #   fallback_model_id: anthropic.claude-3-5-sonnet-20241022-v2:0
+  #   fallback_region: us-east-1
+  #   temperature: 0.2
+  #   top_p: 0.9
+  #   max_tokens: 4096
+  #   streaming: false
+
+  # Anthropic direct API (not compatible with KONE gateway):
+  # anthropic:
+  #   api_key_env: ANTHROPIC_API_KEY
+  #   model_id_env: ANTHROPIC_MODEL_ID
+  #   fallback_model_id: claude-sonnet-4-5
+  #   temperature: 0.2
+  #   max_tokens: 3500
+  #   stream: false

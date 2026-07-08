@@ -1,0 +1,8 @@
+2026-01-15T08:30:00|DOOR_LOCK_FAILURE|Door lock circuit did not confirm closed state
+2026-01-15T09:12:00|MOTOR_OVERCURRENT|Motor current exceeded configured threshold
+2026-01-15T10:05:00|LEVELING_SENSOR_FAULT|Car leveling sensor returned inconsistent signal
+2026-01-15T11:20:00|COMMUNICATION_TIMEOUT|Controller communication timeout detected
+2026-01-15T12:45:00|BRAKE_SWITCH_FAULT|Brake switch status did not match expected state
+2026-01-15T13:10:00|UNKNOWN_CODE|Unmapped sample controller fault
+2026-01-15T14:22:00|DOOR_REVERSAL|Door reversal sensor triggered unexpectedly
+2026-01-15T15:35:00|POSITION_ERROR|Elevator position encoder reported inconsistent data
